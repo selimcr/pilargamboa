@@ -1,0 +1,83 @@
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <table class="table table-bordered table-striped table-with-header">
+                <thead>
+                <tr class="text-center">
+                    <th>&nbsp;</th>
+                    <th colspan="2" class="text-center">{{ 'no'|trans }}</th>
+                    <th colspan="2" class="text-center">{{ 'yes'|trans }}</th>
+                    <th colspan="2" class="text-center">{{ 'total'|trans }}</th>
+                </tr>
+                <tr class="text-center">
+                    <th>&nbsp;</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">%</th>
+                    <th class="text-center">#</th>
+                    <th class="text-center">%</th>
+                    <th class="text-center">#</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>{{ 'men'|trans }}</td>
+                    <td class="text-center">{{ data['menNo'] }}</td>
+                    <td class="text-center">{{ data['menNoPerc']|renderPercentage }}</td>
+                    <td class="text-center">{{ data['menYes'] }}</td>
+                    <td class="text-center">{{ data['menYesPerc']|renderPercentage }}</td>
+                    <td class="text-center">{{ data['menTotal'] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'women'|trans }}</td>
+                    <td class="text-center">{{ data['womenNo'] }}</td>
+                    <td class="text-center">{{ data['womenNoPerc']|renderPercentage }}</td>
+                    <td class="text-center">{{ data['womenYes'] }}</td>
+                    <td class="text-center">{{ data['womenYesPerc']|renderPercentage }}</td>
+                    <td class="text-center">{{ data['womenTotal'] }}</td>
+                </tr>
+                <tr>
+                    <td>{{ 'all'|trans }}</td>
+                    <td class="text-center">{{ data['allNo'] }}</td>
+                    <td class="text-center">{{ data['allNoPerc']|renderPercentage }}</td>
+                    <td class="text-center">{{ data['allYes'] }}</td>
+                    <td class="text-center">{{ data['allYesPerc']|renderPercentage }}</td>
+                    <td class="text-center">{{ data['allTotal'] }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- Charts Block -->
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div id="cognitiveActivitiesMen{{ item.id }}"></div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+                <div id="cognitiveActivitiesWomen{{ item.id }}"></div>
+            </div>
+        </div>
+        <!-- /Charts -->
+<script>
+    var data{{ item.id }} = google.visualization.arrayToDataTable([
+        ['Task', 'Lectura'],
+        ['{{ 'yes'|trans }}', {{ data['menYes'] }}],
+        ['{{ 'no'|trans }}', {{ data['menNo'] }}],
+    ]);
+
+    var options{{ item.id }} = {
+        title: '{{ 'men'|trans }}',
+        width:  '100%'
+    };
+
+    var chart{{ item.id }} = new google.visualization.PieChart(document.getElementById('cognitiveActivitiesMen{{ item.id }}'));
+    chart{{ item.id }}.draw(data{{ item.id }}, options{{ item.id }});
+
+    var dataWomen{{ item.id }} = google.visualization.arrayToDataTable([
+        ['Task', 'Lectura'],
+        ['{{ 'yes'|trans }}', {{ data['womenYes'] }}],
+        ['{{ 'no'|trans }}', {{ data['womenNo'] }}],
+    ]);
+    var optionsWomen{{ item.id }} = {
+        title: '{{ 'women'|trans }}',
+        width:  '100%'
+    };
+    var chartWomen{{ item.id }} = new google.visualization.PieChart(document.getElementById('cognitiveActivitiesWomen{{ item.id }}'));
+    chartWomen{{ item.id }}.draw(dataWomen{{ item.id }}, optionsWomen{{ item.id }});
+</script>

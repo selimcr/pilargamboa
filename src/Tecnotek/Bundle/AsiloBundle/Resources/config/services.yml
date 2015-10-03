@@ -1,0 +1,30 @@
+services:
+    form.type.patient:
+        class: Tecnotek\Bundle\AsiloBundle\Form\PatientForm
+        arguments: ["@security.context",'@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type, alias: patient_form }
+
+    tecnotek.twig.items.extension:
+        class: Tecnotek\Bundle\AsiloBundle\Twig\Extensions\ItemsExtension
+        tags:
+            - { name: twig.extension }
+        arguments:
+            em: "@doctrine.orm.entity_manager"
+            translator: "@translator"
+
+    tecnotek.twig.menu.extension:
+        class: Tecnotek\Bundle\AsiloBundle\Twig\Extensions\MenuExtension
+        tags:
+            - { name: twig.extension }
+        arguments:
+            em: "@doctrine.orm.entity_manager"
+            translator: "@translator"
+            session: "@session"
+            securityContext: "@security.context"
+            logger: "@logger"
+            router: "@router"
+
+    permissions_service:
+         class: Tecnotek\Bundle\AsiloBundle\Services\PermissionService
+         arguments: ["@security.context", "@router", "@logger", "@doctrine.orm.entity_manager", "@translator", "@session"]

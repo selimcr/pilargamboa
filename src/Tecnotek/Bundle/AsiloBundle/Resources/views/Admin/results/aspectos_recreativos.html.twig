@@ -1,0 +1,88 @@
+{% extends 'TecnotekAsiloBundle:Admin:layouts/admin_layout.html.twig' %}
+
+{% block js %}
+    <script src="{{ asset('admin/js/tecnotek/tecnotek_results.js') }}"></script>
+
+    <script type="text/javascript">
+        Tecnotek.module = "results";
+        Tecnotek.UI.urls['render-yes-no-results'] = "{{ path('_activity_results_yes_no', {'itemId':'xid'} ) }}";
+        Tecnotek.UI.urls['render-yes-no-plus-entity-results'] =
+                "{{ path('_activity_results_yes_no_plus_entity', {'itemId':'xid'} ) }}";
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.load('visualization', '1', {packages: ['corechart', 'bar']});
+    </script>
+{% endblock js %}
+
+{% block mainContent %}
+<!--overview start-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-laptop"></i> {{ 'aspectos.recreativos'|trans }}</h3>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-home"></i><a href="{{ path('_admin_home') }}">{{ 'home'|trans }}</a></li>
+            <li><i class="fa fa-bar-chart-o"></i>{{ activityType }}</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row yes-no-plus-entity-item-results" item-id="11">
+    <div class="loader">Loading...</div>
+</div>
+<div class="row yes-no-plus-entity-item-results" item-id="14">
+    <div class="loader">Loading...</div>
+</div>
+<div class="row yes-no-plus-entity-item-results" item-id="17">
+    <div class="loader">Loading...</div>
+</div>
+<div class="row yes-no-plus-entity-item-results" item-id="20">
+    <div class="loader">Loading...</div>
+</div>
+<div class="row yes-no-plus-entity-item-results" item-id="23">
+    <div class="loader">Loading...</div>
+</div>
+<div class="row yes-no-plus-entity-item-results" item-id="26">
+    <div class="loader">Loading...</div>
+</div>
+<div class="row yes-no-plus-entity-item-results" item-id="32">
+    <div class="loader">Loading...</div>
+</div>
+<div class="row yes-no-plus-entity-item-results" item-id="42">
+    <div class="loader">Loading...</div>
+</div>
+<div class="row yes-no-plus-entity-item-results" item-id="45">
+    <div class="loader">Loading...</div>
+</div>
+
+<!-- Utiliza Computadora? -->
+<div class="row yes-no-item-results" item-id="29" use-activity-title="1">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Ve Noticias? -->
+<div class="row yes-no-item-results" item-id="35">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Ve Television? -->
+<div class="row yes-no-item-results" item-id="36">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Escucha Radio? -->
+<div class="row yes-no-item-results" item-id="37">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Le gusta animales? -->
+<div class="row yes-no-item-results" item-id="38">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Pasea playas/montañas? -->
+<div class="row yes-no-item-results" item-id="39">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Posee celular? -->
+<div class="row yes-no-item-results" item-id="40">
+    <div class="loader">Loading...</div>
+</div>
+<!-- Mantiene Informado t.a? -->
+<div class="row yes-no-item-results" item-id="41">
+    <div class="loader">Loading...</div>
+</div>
+{% endblock mainContent %}

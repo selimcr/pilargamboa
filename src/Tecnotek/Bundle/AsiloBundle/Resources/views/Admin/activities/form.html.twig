@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-lg-3">
+        <div class="panel panel-default">
+            <div class="panel-heading five-left-padding">{{ 'activities.or.aspects'|trans }}</div>
+            <div class="panel-body without-padding">
+                <ul class="nav nav-pills nav-stacked nav-squared">
+                    {% for activity in activityType.activities %}
+                        {% if activity.exclusiveGender == null or activity.exclusiveGender == gender %}
+                        <li class="{{ loop.index == 1? 'active ':'' }}activity-li">
+                            <a class="activity" rel="{{ activity.id }}" href="#">{{ activity }}</a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-9">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{ 'elements'|trans }} | <span id="activity-name-title"></span></div>
+            <div class="panel-body">
+                <div id="itemsContainer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    Tecnotek.Patients.Edit.initActivitiesEvents();
+</script>

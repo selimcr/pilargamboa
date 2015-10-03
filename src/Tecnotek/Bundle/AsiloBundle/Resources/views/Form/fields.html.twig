@@ -1,0 +1,117 @@
+{% block form_row %}
+<div class="form-group control-group">
+    {{ form_label(form) }}
+
+    <div class="col-sm-9">
+        {{ form_widget(form) }}
+    </div>
+</div>
+{% endblock form_row %}
+
+{% block form_label %}
+<label class="{{ ( required )? 'required':"" }} col-sm-3 control-label" for="{{ full_name|escape }}">
+    {{ ( required )? '<abbr title="required">*</abbr>':"" }}
+    {{ label|trans|escape }}
+</label>
+{% endblock form_label %}
+
+{%- block form_widget_simple -%}
+    {%- set type = type|default('text') -%}
+    <input class="form-control" type="{{ type }}" {{ block('widget_attributes') }} {% if value is not empty %}value="{{ value }}" {% endif %}/>
+    {% if help is defined %}
+        <p class="help-block">{{ help|escape }}</p>
+    {% endif %}
+{%- endblock form_widget_simple -%}
+
+{% block text_widget %}
+    <input type="text" class="form-control"
+           id="{{ id|escape }}" name="{{ full_name|escape }}"
+
+        {% if (value is empty) == false %}
+        value="{{ value|escape }}"
+        {% endif %}
+
+        {{ ( read_only )? 'readonly="readonly"':"" }}
+        {{ ( disabled )? 'disabled="disabled"':"" }}
+        {{ ( required )? 'required="required"':"" }}
+
+        {% for k,v in attr %}
+        {% if k in ['placeholder', 'title'] %}
+        {{ k|escape }}="{{ v|escape|trans }}"
+        {% else %}
+        {% endif %}
+        {% endfor %}
+    />
+    {% if help is defined %}
+        <p class="help-block">{{ help|escape }}</p>
+    {% endif %}
+
+{% endblock text_widget %}
+
+{%- block number_widget -%}
+    {# type="number" doesn't work with floats #}
+    {%- set type = type|default('text') -%}
+    {{ block('form_widget_simple') }}
+{%- endblock number_widget -%}
+
+{% block textarea_widget %}
+    <textarea rows="3" class="form-control"
+              id="{{ id|escape }}" name="{{ full_name|escape }}"
+
+    {{ ( read_only )? 'readonly="readonly"':"" }}
+    {{ ( disabled )? 'disabled="disabled"':"" }}
+    {{ ( required )? 'required="required"':"" }}
+
+    {% for k,v in attr %}
+    {% if k in ['placeholder', 'title'] %}
+    {{ k|escape }}="{{ v|escape|trans }}"
+            {% else %}
+            {% endif %}
+            {% endfor %}
+            >{% if (value is empty) == false %}{{ value|escape }}{% endif %}</textarea>
+
+    {% if help is defined %}
+        <p class="help-block">{{ help|escape }}</p>
+    {% endif %}
+
+{% endblock %}
+
+{%- block choice_widget_collapsed -%}
+    {%- if required and placeholder is none and not placeholder_in_choices and not multiple -%}
+        {% set required = false %}
+    {%- endif -%}
+    <select {{ block('widget_attributes') }}{% if multiple %} multiple="multiple"{% endif %} class="form-control">
+        {%- if placeholder is not none -%}
+            <option value=""{% if required and value is empty %} selected="selected"{% endif %}>{{ placeholder != '' ? placeholder|trans({}, translation_domain) }}</option>
+        {%- endif -%}
+        {%- if preferred_choices|length > 0 -%}
+            {% set options = preferred_choices %}
+            {{- block('choice_widget_options') -}}
+            {%- if choices|length > 0 and separator is not none -%}
+                <option disabled="disabled">{{ separator }}</option>
+            {%- endif -%}
+        {%- endif -%}
+        {%- set options = choices -%}
+        {{- block('choice_widget_options') -}}
+    </select>
+{%- endblock choice_widget_collapsed -%}
+
+{% block choice_widget_expanded %}
+    {% for child in form %}
+    <div class="checkbox">
+
+        <label>
+            <input type="checkbox" id="{{ child.vars["id"] }}"
+                   name="{{ child.vars["full_name"] }}"
+                   value="{{ child.vars["value"] }}"
+                    {{ ( child.vars["checked"] )? 'checked="checked"':"" }}
+                    {{ ( child.vars["read_only"] )? 'readonly="readonly"':"" }}
+                    {{ ( child.vars["disabled"] )? 'disabled="disabled"':"" }}
+                    {{ ( child.vars["required"] )? 'required="required"':"" }}
+                    >
+
+            {{ child.vars["label"]|trans }}
+        </label>
+    </div>
+    {% endfor %}
+{% endblock choice_widget_expanded %}

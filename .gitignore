@@ -1,0 +1,10 @@
+# Cache and logs (Symfony2)
+/app/cache/*
+/app/logs/*
+
+# Parameters
+/app/config/parameters.yml
+/app/config/parameters.ini
+
+# Php Storm IDE Files
+.idea/

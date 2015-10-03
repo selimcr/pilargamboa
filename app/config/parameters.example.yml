@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: pilargamboa
+    database_user: root
+    database_password: rootroot
+    mailer_transport: smtp
+    mailer_auth_mode: login
+    mailer_port: 2525
+    mailer_host: mail.pilargamboa.org
+    mailer_user: info@pilargamboa.org
+    mailer_password: p1l4rg4mb042015
+    locale: es
+    secret: ThisTokenIsNotSoSecretChangeIt

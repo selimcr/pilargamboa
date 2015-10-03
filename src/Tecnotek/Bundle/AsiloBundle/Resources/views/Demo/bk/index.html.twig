@@ -1,0 +1,10 @@
+{% extends "TecnotekAsiloBundle:Admin:layout.html.twig" %}
+
+{% block title "Hello " ~ name %}
+
+{% block content %}
+    <h1 class="title">Hello {{ name }} from Admin!</h1>
+
+    <a href="{{ path('_admin_hello_admin', { 'name': name }) }}">Hello resource secured for <strong>admin</strong> only.</a>
+{% endblock %}
+

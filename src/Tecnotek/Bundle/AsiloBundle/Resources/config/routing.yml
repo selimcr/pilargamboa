@@ -1,0 +1,71 @@
+_welcome:
+    pattern:  /
+    defaults: { _controller: TecnotekAsiloBundle:Public:index }
+
+_admin_secured:
+    resource: "@TecnotekAsiloBundle/Controller/AdminController.php"
+    type:     annotation
+
+_public:
+    resource: "@TecnotekAsiloBundle/Controller/DemoController.php"
+    type:     annotation
+    prefix:   /demo
+
+_pilar_gamboa_admin_patients:
+    resource: "@TecnotekAsiloBundle/Controller/PatientsController.php"
+    type:     annotation
+    prefix:   /admin
+
+_pilar_gamboa_admin_pentions:
+    resource: "@TecnotekAsiloBundle/Controller/PentionsController.php"
+    type:     annotation
+    prefix:   /admin
+
+_pilar_gamboa_admin_patients_pentions:
+    resource: "@TecnotekAsiloBundle/Controller/PatientsPentionsController.php"
+    type:     annotation
+    prefix:   /admin
+
+_pilar_gamboa_admin_activities:
+    resource: "@TecnotekAsiloBundle/Controller/ActivitiesController.php"
+    type:     annotation
+    prefix:   /admin
+
+_pilar_gamboa_admin_results:
+    resource: "@TecnotekAsiloBundle/Controller/ResultsController.php"
+    type:     annotation
+    prefix:   /admin
+
+_pilar_gamboa_admin_catalogs:
+    resource: "@TecnotekAsiloBundle/Controller/CatalogController.php"
+    type:     annotation
+    prefix:   /admin
+
+_pilar_gamboa_admin_users:
+    resource: "@TecnotekAsiloBundle/Controller/UsersController.php"
+    type:     annotation
+    prefix:   /admin
+
+_pilar_gamboa_admin_account:
+    resource: "@TecnotekAsiloBundle/Controller/AccountController.php"
+    type:     annotation
+    prefix:   /admin
+
+_pilar_gamboa_admin_patiens_report:
+    pattern:  /reports/reportList/
+    defaults: { _controller: TecnotekAsiloBundle:Admin:reportList }
+
+_pilar_gamboa_admin_patiens_catalog_report:
+    pattern:  /reports/reportListCatalog/
+    defaults: { _controller: TecnotekAsiloBundle:Admin:reportListCatalog }
+
+_admin_catalog_base:
+    pattern:  admin/catalog/
+
+_pilar_gamboa_admin_load_group_of_activity:
+    pattern:  /report/listcatalog/
+    defaults: { _controller: TecnotekAsiloBundle:Admin:reportLoadActivities }
+
+_pilar_gamboa_admin_load_group_of_patients:
+    pattern:  /report/listcatalog2/
+    defaults: { _controller: TecnotekAsiloBundle:Admin:reportLoadPatients }

@@ -1,0 +1,122 @@
+{% extends 'TecnotekAsiloBundle:Admin:layouts/admin_layout.html.twig' %}
+
+{% block mainContent %}
+<!--overview start-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-laptop"></i> {{ 'dashboard'|trans }}</h3>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-home"></i><a href="{{ path('_admin_home') }}">{{ 'home'|trans }}</a></li>
+            <li><i class="fa fa-laptop"></i>{{ 'dashboard'|trans }}</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="info-box brown-bg">
+            <i class="fa fa-users"></i>
+
+            <div class="count">{{ counters['patientCounters'][1] + counters['patientCounters'][2] }}</div>
+            <div class="title">{{ 'patients'|trans }}</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="info-box blue-bg">
+            <i class="fa fa-male"></i>
+
+            <div class="count">{{ counters['patientCounters'][1] }}</div>
+            <div class="title">{{ 'men'|trans }}</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+
+    <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+        <div class="info-box pink-bg">
+            <i class="fa fa-female"></i>
+
+            <div class="count">{{ counters['patientCounters'][2] }}</div>
+            <div class="title">{{ 'women'|trans }}</div>
+        </div>
+        <!--/.info-box-->
+    </div>
+    <!--/.col-->
+</div><!--/.row-->
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2><i class="fa fa-flag-o red"></i><strong>{{ 'older.adults.age.ranges'|trans }}</strong></h2>
+            </div>
+            <div class="panel-body">
+                <table class="table bootstrap-datatable">
+                    <thead>
+                    <tr>
+                        <th>{{ 'years.ranges'|trans }}</th>
+                        <th>{{ 'men'|trans }}</th>
+                        <th>{{ 'women'|trans }}</th>
+                        <th>{{ 'all'|trans }}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set ranges = ['65-69', '70-80', '81-90', 'Mayor 90'] %}
+                    {% for range in ranges %}
+                        <tr>
+                            <td>{{ range }}</td>
+                            <td>{{ counters['maleAgesCounters'][range] }}</td>
+                            <td>{{ counters['femaleAgesCounters'][range] }}</td>
+                            <td>{{ counters['maleAgesCounters'][range] + counters['femaleAgesCounters'][range] }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--/col-->
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2><i class="fa fa-flag-o red"></i><strong>{{ 'older.adults.age.ranges'|trans }}</strong></h2>
+            </div>
+            <div class="panel-body">
+                <div id="barchart_ages"></div>
+            </div>
+        </div>
+    </div>
+    <!--/col-->
+</div>
+
+<script type="text/javascript">
+    google.load("visualization", "1.1", {packages:["bar"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['{{ 'range'|trans }}', '{{ 'men'|trans }}', '{{ 'women'|trans }}'],
+            {% for range in ranges %}
+                {% if loop.index == 1 %}
+                ['{{ range }}', {{ counters['maleAgesCounters'][range] }}, {{ counters['femaleAgesCounters'][range] }}]
+                {% else %}
+                ,['{{ range }}', {{ counters['maleAgesCounters'][range] }}, {{ counters['femaleAgesCounters'][range] }}]
+                {% endif %}
+            {% endfor %}
+        ]);
+
+        var options = {
+            height: 165,
+            chart: {
+                //title: '{{ 'older.adults.age.ranges'|trans }}'
+            },
+            bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_ages'));
+        chart.draw(data, options);
+    }
+</script>
+{% endblock mainContent %}

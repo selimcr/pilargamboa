@@ -1,0 +1,10 @@
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2><i class="fa fa-flag-o red"></i><strong>{{ entityItem.activity }}</strong></h2>
+        </div>
+        <div class="panel-body">
+            {% include 'TecnotekAsiloBundle:Admin:results/entity_row.html.twig' with {"entityItem": entityItem, 'entityTableData': entityTableData} only %}
+        </div>
+    </div>
+</div>

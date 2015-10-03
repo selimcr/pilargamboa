@@ -1,0 +1,83 @@
+{{ form_widget(form._token) }}
+
+{% for flashMessage in app.session.flashbag.get('success') %}
+    <div class="alert alert-success fade in">
+        <button data-dismiss="alert" class="close close-sm" type="button">
+            <i class="glyphicon glyphicon-remove"></i>
+        </button>
+        {{ flashMessage }}
+    </div>
+{% endfor %}
+
+{% spaceless %}
+    {% if not form.vars.valid %}
+        <div class="alert alert-block alert-danger fade in">
+            <button data-dismiss="alert" class="close close-sm" type="button">
+                <i class="glyphicon glyphicon-remove"></i>
+            </button>
+            <h4>{{ 'review.and.fix.fields'|trans }}</h4>
+            {{ form_errors(form) }}
+
+            {% for children in form.children %}
+                {% if not children.vars.valid %}
+                    <ul>
+                        {% for error in children.vars.errors %}
+                            <li><b>{{ children.vars.name|trans }}</b>: {{ error.message }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endspaceless %}
+
+<div class="col-lg-6">
+    {{ form_row(form.firstname, { 'label' : 'name' }) }}
+
+    {{ form_row(form.lastname, { 'label' : 'lastname' }) }}
+
+    {{ form_row(form.secondSurname, { 'label' : 'secondSurname' }) }}
+
+    {{ form_row(form.documentId, { 'label' : 'documentId' }) }}
+
+    {{ form_row(form.gender, { 'label' : 'gender' }) }}
+
+    {{ form_row(form.birthdate, { 'label' : 'birthdate',
+        'help': 'patient.birthdate.note'|trans }) }}
+
+    {{ form_row(form.civilStatus, { 'label' : 'civil.status'}) }}
+
+    {{ form_row(form.admissionDate, { 'label' : 'admission.date',
+        'help': 'patient.admissionDate.note'|trans }) }}
+
+    {{ form_row(form.country, { 'label' : 'nacionality'}) }}
+
+    {{ form_row(form.state, { 'label' : 'state'}) }}
+
+    {{ form_row(form.address, { 'label' : 'address'}) }}
+</div>
+
+<div class="col-lg-6">
+    {{ form_row(form.weight, { 'label' : 'weight'}) }}
+
+    {{ form_row(form.height, { 'label' : 'height'}) }}
+
+    {{ form_row(form.brachialCircumference, { 'label' : 'brachialCircumference'}) }}
+
+    {{ form_row(form.calfCircumference, { 'label' : 'calfCircumference'}) }}
+
+    {{ form_row(form.kneeHeight, { 'label' : 'kneeHeight'}) }}
+
+    {{ form_row(form.imc, { 'label' : 'imc'}) }}
+
+    {{ form_row(form.nutritionalState, { 'label' : 'nutritional.state'}) }}
+
+    {{ form_row(form.scholarity, { 'label' : 'scholarity'}) }}
+
+    {{ form_row(form.liveWith, { 'label' : 'live.with'}) }}
+
+    {{ form_row(form.phones, { 'label' : 'important.phones'}) }}
+
+    {{ form_row(form.laterality, { 'label' : 'laterality'}) }}
+</div>

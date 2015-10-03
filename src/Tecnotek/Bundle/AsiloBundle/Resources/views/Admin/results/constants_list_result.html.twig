@@ -1,0 +1,82 @@
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2><i class="fa fa-flag-o red"></i><strong>{{ title is defined? title:item }}</strong></h2>
+        </div>
+        <div class="panel-body">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <table class="table table-bordered table-striped table-with-header">
+                    <thead>
+                    <tr class="text-center">
+                        <th>&nbsp;</th>
+                        <th colspan="2" class="text-center">{{ 'men'|trans }}</th>
+                        <th colspan="2" class="text-center">{{ 'women'|trans }}</th>
+                        <th colspan="2" class="text-center">{{ 'total'|trans }}</th>
+                    </tr>
+                    <tr class="text-center">
+                        <th>&nbsp;</th>
+                        <th class="text-center">#</th>
+                        <th class="text-center">%</th>
+                        <th class="text-center">#</th>
+                        <th class="text-center">%</th>
+                        <th class="text-center">#</th>
+                        <th class="text-center">%</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for key in data|keys %}
+                        <tr>
+                            <td>{{ ('item.' ~ item.type ~ '.enum.option.'~key)|trans }}</td>
+                            <td class="text-center">{{ data[key]['1'] }}</td>
+                            <td class="text-center">{{ data[key]['percMen']|renderPercentage }}</td>
+                            <td class="text-center">{{ data[key]['2'] }}</td>
+                            <td class="text-center">{{ data[key]['percWomen']|renderPercentage }}</td>
+                            <td class="text-center">{{ data[key]['all'] }}</td>
+                            <td class="text-center">{{ data[key]['percAll']|renderPercentage }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <!-- Charts Block -->
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div id="chartMen{{ item.id }}"></div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div id="chartWomen{{ item.id }}"></div>
+                </div>
+            </div>
+            <!-- /Charts -->
+            <script>
+                var data{{ item.id }} = google.visualization.arrayToDataTable([
+                    ['Constant', 'Percentage'],
+                    {% for key in data|keys %}
+                    ['{{ ('item.' ~ item.type ~ '.enum.option.'~key)|trans }}', {{ data[key]['1'] }}],
+                    {% endfor %}
+                ]);
+
+                var options{{ item.id }} = {
+                    title: '{{ 'men'|trans }}',
+                    width:  '100%'
+                };
+
+                var chart{{ item.id }} = new google.visualization.PieChart(document.getElementById('chartMen{{ item.id }}'));
+                chart{{ item.id }}.draw(data{{ item.id }}, options{{ item.id }});
+
+                var dataWomen{{ item.id }} = google.visualization.arrayToDataTable([
+                    ['Task', 'Lectura'],
+                    {% for key in data|keys %}
+                    ['{{ ('item.' ~ item.type ~ '.enum.option.'~key)|trans }}', {{ data[key]['2'] }}],
+                    {% endfor %}
+                ]);
+                var optionsWomen{{ item.id }} = {
+                    title: '{{ 'women'|trans }}',
+                    width:  '100%'
+                };
+                var chartWomen{{ item.id }} = new google.visualization.PieChart(document.getElementById('chartWomen{{ item.id }}'));
+                chartWomen{{ item.id }}.draw(dataWomen{{ item.id }}, optionsWomen{{ item.id }});
+            </script>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="col-lg-6 col-md-12 col-sm-12">
+    <table class="table table-bordered table-striped table-with-header">
+        <thead>
+        <tr class="text-center">
+            <th class="text-center">{{ entityItem.referencedEntity|trans }}</th>
+            <th class="text-center">{{ 'participants'|trans }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entityData in entityTableData %}
+            <tr>
+                <td>{{ entityData['name'] }}</td>
+                <td class="text-center">{{ entityData['counter'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<!-- Charts Block -->
+<div class="col-lg-6 col-md-12 col-sm-12">
+    <div id="entityChart{{ entityItem.id }}"></div>
+</div>
+<!-- /Charts -->
+<script>
+    var data{{ entityItem.id }} = google.visualization.arrayToDataTable([
+        ['{{ entityItem.referencedEntity|trans }}', '{{ 'participants'|trans }}'],
+        {% for entityData in entityTableData %}
+                ['{{ entityData['name'] }}', {{ entityData['counter'] }}],
+        {% endfor %}
+    ]);
+
+    var options{{ entityItem.id }} = {
+    };
+
+    var material{{ entityItem.id }} = new google.charts.Bar(document.getElementById('entityChart{{ entityItem.id }}'));
+    material{{ entityItem.id }}.draw(data{{ entityItem.id }}, options{{ entityItem.id }});
+</script>

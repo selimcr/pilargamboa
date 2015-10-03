@@ -1,0 +1,70 @@
+{% extends 'TecnotekAsiloBundle:Admin:layouts/admin_layout.html.twig' %}
+
+{% block js %}
+    <script src="{{ asset('admin/js/tecnotek/tecnotek_results.js') }}"></script>
+
+    <script type="text/javascript">
+        Tecnotek.module = "results";
+        Tecnotek.UI.urls['render-yes-no-results'] = "{{ path('_activity_results_yes_no', {'itemId':'xid'} ) }}";
+        Tecnotek.UI.urls['render-yes-no-plus-entity-results'] =
+                "{{ path('_activity_results_yes_no_plus_entity', {'itemId':'xid'} ) }}";
+        Tecnotek.UI.urls['render-entity-results'] =
+                "{{ path('_activity_results_entity', {'itemId':'xid'} ) }}";
+        Tecnotek.UI.urls['render-constants-select-results'] = "{{ path('_activity_results_constants', {'itemId':'xid'} ) }}";
+
+        google.load("visualization", "1", {packages:["corechart"]});
+        google.load('visualization', '1', {packages: ['corechart', 'bar']});
+    </script>
+{% endblock js %}
+
+{% block mainContent %}
+<!--overview start-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="page-header"><i class="fa fa-laptop"></i> {{ 'basic.needs'|trans }}</h3>
+        <ol class="breadcrumb">
+            <li><i class="fa fa-home"></i><a href="{{ path('_admin_home') }}">{{ 'home'|trans }}</a></li>
+            <li><i class="fa fa-bar-chart-o"></i>{{ activityType }}</li>
+        </ol>
+    </div>
+</div>
+    <!-- Utiliza Pañal? -->
+    <div class="row yes-no-item-results" item-id="60">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!-- Utiliza Lentes? -->
+    <div class="row yes-no-item-results" item-id="61">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!-- Fuma? -->
+    <div class="row yes-no-item-results" item-id="62">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!-- Servicio Sanitario -->
+    <div class="row constants-list-item-results" item-id="63">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!-- Baño-->
+    <div class="row constants-list-item-results" item-id="65" use-activity-title="1">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!-- Vestido -->
+    <div class="row constants-list-item-results" item-id="67" use-activity-title="1">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!-- Alimentacion -->
+    <div class="row constants-list-item-results" item-id="72" use-activity-title="1">
+        <div class="loader">Loading...</div>
+    </div>
+
+    <!-- Habitos de Sueño -->
+    <div class="row entity-item-results" item-id="69" use-activity-title="1">
+        <div class="loader">Loading...</div>
+    </div>
+{% endblock mainContent %}

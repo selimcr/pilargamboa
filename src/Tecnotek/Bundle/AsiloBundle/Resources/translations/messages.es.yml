@@ -1,0 +1,268 @@
+# General #
+site.title: Centro Diurno Pilar Gamboa Exp. Electrónico Gerontológico
+header.title: Centro Diurno Pilar Gamboa
+contact.us: Contáctenos
+services: Servicios
+about.us: Quiénes Somos
+admin.site: Sitio Administrativo
+
+main.title: Centro Diurno Pilar Gamboa
+main.msg: MISION: Somos una organización que se creó con el fin de dar atención integral al adulto mayor, para cubrir sus necesidades básicas.
+at.your.service: Estamos Para Servirle
+services.basics: Servicios Básicos
+services.basics.msg: Fisioterapia, terapia ocupacional y recreativa, psicología, odontología, gerontología, transporte (este servicio se brinda si la residencia se encuentra dentro de la ruta establecida).
+services.activities: Distintas Actividades
+services.activities.msg: Manualidades, Bingos, Terapias Físicas, psicología, espiritual, terapia ocupacional, entre otras forman parte de nuestras actividades semanales.
+service.health: Servicios de Salud
+service.health.msg: Enfermería permanente, médico geriatra, nutrición, fisioterapia y más porque su salud y bienestar es lo más importante.
+contact.us.msg: ¿Dudas o inquietudes sobre nuestros servicios? Llámanos o envíanos un correo electrónico y te contáctaremos tan pronto como sea posible.
+our.services: Nuestros Servicios
+back.to.start: Volver al Inicio
+ready.for.contact: ¿Necesita más información?
+find.out.more: ¿Quieres conocer más?
+we.got.what.your.need: VISION:
+we.got.what.your.need.msg: Ser una institución firme y solida, con el personal técnico y administrativo idóneo para dar la calidad de vida que se merecen las Personas Adultas Mayores.
+we.got.what.your.need2: FINES:
+we.got.what.your.need.msg2: Ofrecer amor, espiritualidad, y que los beneficiarios sean dignamente comprendidos el cual es un derecho que debemos respetar y proteger con una mejor calidad de vida.
+requeriments: Requisitos:
+requeriments.details: Ser mayor de 65 años, valoración del departamento de psicología, fotocopia de la cédula de identidad, fotografía reciente tamaño pasaporte, completar expediente de la institución, firmar el contrato familia-beneficiario, firmar el reglamento de funcionamiento, epicrisis, certificación de pensión emitida por la CCSS, Ministerio de Hacienda o Magisterio Nacional (tenga pensión o no).
+
+#Admin Site
+username: Nombre de Usuario
+password: Contraseña
+login: Ingresar
+forgot.password: Olvidó su Contraseña
+remember.me: Recuérdame
+bad.credentials: El nombre de usuario y contraseña ingresados no coinciden
+admin.site: Sitio Administrativo
+my.profile: Mi Cuenta
+log.out: Salir
+dashboard: Dashboard
+
+# Menu
+home: Inicio
+forms: Mantenimientos
+reports: Reportes
+results: Resultados
+cognitive.activities: Actividades Cognitivas
+patiens.list: Listados de Beneficiarios
+patiens.list.catalog: Listados por Actividad
+
+# Actions
+actions: Acciones
+save: Guardar
+reset: Limpiar
+new: Nuevo
+cancel: Cancelar
+edit: Editar
+create: Crear
+add: Agregar
+change: Cambiar
+
+saving.success: Se ha guardado la información correctamente
+
+# Catalogs
+catalog.save.success: Se ha completado el guardado correctamente
+confirm.catalog.delete: ¿Está seguro que desea eliminar este elemento del catálogo?
+catalog.delete.success: El elemento fue eliminado correctamente
+dance: Baile
+dances: Bailes
+Dances: Bailes
+sport: Deporte
+sports: Deportes
+Sports: Deportes
+disease: Enfermedad
+diseases: Enfermedades
+Diseases: Enfermedades
+entertainmentActivity: Actividad
+entertainmentActivities: Actividades
+entertainmentActivitys: Actividades
+instrument: Instrumento
+instruments: Instrumentos
+Instruments: Instrumentos
+manuality: Manualidad
+manualitys: Manualidades
+manualities: Manualidades
+Manualities: Manualidades
+music: Música
+musics: Estilos Musicales
+Musics: Estilos Musicales
+religion: Religion
+religions: Religiones
+Religions: Religiones
+reading: Lectura
+readings: Lecturas
+Readings: Lecturas
+roomGame: Juego
+roomGames: Juegos
+RoomGames: Juegos
+sleepHabit: Hábito
+sleepHabits: Hábitos
+SleepHabits: Hábitos de Sueño
+spiritualActivity: Actividad Espiritual
+spiritualActivities: Actividades Espirituales
+spiritualActivitys: Actividades Espirituales
+writing: Escritura
+writings: Escrituras
+Writings: Escrituras
+
+# Patients
+patients: Beneficiarios
+patient.main.info: Información Principal
+patient.birthdate.note: Ingrese la fecha de nacimiento con el formato MM/dd/YYYY
+patient.admissionDate.note: Ingrese la fecha de ingreso con el formato MM/dd/YYYY
+create.patient: Crear Beneficiario
+patient: Beneficiario
+confirm.graduate: ¿Está seguro que desea egresar a este Beneficiario(a)? Despúes de hacerlo no aparecerá en esta lista y podrá encontrarlo en la lista de egresados.
+patient.graduate.fail: No fue posible egresar al beneficiario
+patient.graduate.success: El beneficiario fue egresado correctamente, para revisar su información vaya a la lista de egresados
+Graduate List: Lista de Egresados
+patients.graduate: Beneficiarios Egresados
+confirm.readmit: ¿Está seguro que desea reingresar a este Beneficiario(a)? Despúes de hacerlo no aparecerá en esta lista y podrá encontrarlo en la lista de beneficiaros regulares.
+patient.reenter.fail: No fue posible reingresar al beneficiario
+patient.reenter.success: El beneficiario fue reingresado correctamente, para revisar su información vaya a la lista de beneficiarios regulares
+
+# Patients Pentions
+patients.pentions: Pensiones de Beneficiarios
+confirm.patient.pention.delete: ¿Está seguro que desea eliminar esta Pensión?
+patient.pention.delete.success: La Pensión fue eliminada correctamente
+edit.patients.pentions: Editar Pensión
+patient.pention.save.success: La Pensión fue guardada correctamente
+
+# Pentions
+pention: Pensión
+pentions: Pensiones
+create.pention: Crear Pensión
+edit.pention: Editar Pensión
+pention.save.success: La pensión fue guardada correctamente
+pention.delete.success: La pensión fue eliminada correctamente
+confirm.pention.delete: ¿Está seguro que desea eliminar esta pensión?
+add.pention: Agregar Pensión
+add.pention.success: La pensión fue agregada correctamente
+remove.pention: ¿Está seguro que desea eliminar esta pensión del beneficiario?
+remove.pention.sucess: La pensión fue eliminada correctamente
+
+# Fields
+name: Nombre
+lastname: Primer Apellido
+secondSurname: Segundo Apellido
+birthdate: Fecha Nacimiento
+documentId: Cédula
+nacionality: Nacionalidad
+state: Provincia/Estado
+admission.date: Fecha Ingreso
+weight: Peso (Kg)
+brachialCircumference: Circunferencia Braquial (CB)
+calfCircumference: Circunferencia Pantorrilla (CP)
+kneeHeight: Altura Rodilla (AR)
+height: Talla (cm)
+imc: Indicé de Masa Corporal (IMC)
+nutritional.state: Estado Nutritional
+scholarity: Escolaridad
+address: Lugar en que Vive
+live.with: Vive Con
+important.phones: Teléfonos Importantes
+civil.status: Estado Civil
+laterality: Lateralidad
+gender: Género
+amount: Monto
+yes: Si
+no: No
+men: Hombres
+women: Mujeres
+all: Todos
+total: Total
+participants: Participantes
+email: Correo Electrónico
+cellPhone: Teléfono
+active: Activo
+
+# Dashboard
+older.adults.age.ranges: Cantidad Adultos Mayores por Rango de Edades
+years.ranges: Rango Años
+
+#
+activities.and.others: Actividades y Otros
+select.activity.type: Seleccione el tipo de actividades o aspectos que desea revisar
+select.activity: Seleccionar Actividad
+activities.or.aspects: Actividades | Aspectos
+elements: Elementos
+aspectos.recreativos: Aspectos Recreativos
+spiritual.aspects: Aspectos Espirituales
+cognitivities.activities: Actividades Cognitivas
+basic.needs: Necesidades Básicas
+
+#Enums
+item.5.enum.option.1: Solo
+item.5.enum.option.2: Necesita Supervición
+item.5.enum.option.3: Necesita Ayuda Parcial
+item.5.enum.option.4: Necesita Ayuda Total
+item.5.enum.option.5: Necesita Sonda
+
+item.6.enum.option.1: Solo
+item.6.enum.option.2: Necesita Supervición
+item.6.enum.option.3: Necesita Ayuda Parcial
+item.6.enum.option.4: Necesita Ayuda Total
+
+#Validations
+review.and.fix.fields: Por favor revise y corrija los siguientes errores antes de guardar
+validation.not.empty: Este campo es requerido y no puede estar vacío
+validation.not.found: El objeto no fue encontrado
+validation.only.digits: Este campo sólo puede contener dígitos
+
+#Reports
+label.print: Imprimir
+label.report.id: Identificación
+label.report.name: Nombre
+label.include.in.report: Incluir
+label.gender: Género
+label.address: Dirección
+label.birthday: Fecha de Nacimiento
+label.generate: Generar
+label.report.list: Reporte de Beneficiaros
+label.report.list.catalog: Reporte de Beneficiaros en actividad.
+
+#Users
+users: Usuarios
+permissions: Permisos
+select.user.to.review.permissions: Seleccione un Usuario de la lista para administrar sus permisos
+menu.options: Opciones de Menú
+user.username.and.email.must.be.uniques: El nombre de usuario o el email ya se encuentran registrado, por favor intente cambiarlos y probar nuevamente
+save.menu.options: Guardar Opciones de Menú
+save.permissions: Guardar Permisos
+
+#Menu and Permissions Translations
+Patients: Beneficiarios
+List: Lista
+Results: Resultados
+Reports: Reportes
+Editar Patient: Editar Beneficiario
+Listado de Patients: Listado de Beneficiarios
+Pentions: Pensiones
+Editar Patient Actividades: Editar Beneficiario Actividades
+
+write.your.message: Escribe tu mensaje
+contact.support: Contactar al Administrador
+error.page.contact.message: Si lo desea por favor notificarnos de este error
+return.to.web.site: Volver a la página inicial
+return.to.admin.site: Volver al sitio administrativo
+
+error.message: Upps, algo ha salido mal; por favor enviarnos un mensaje con los pasos realizados que generaron esta situación para trabajar en ello cuanto antes
+error.404.message: La página o el recurso que está buscando no existe
+error.500.message: Upps, algo inesperado ha ocurrido; por favor enviarnos un mensaje con los pasos realizados que generaron esta situación para trabajar en ello cuanto antes
+error.403.message: No está autorizado para ver la página o el recurso solicitado o ejecutar la acción solitada; si considera que esto es un error por favor enviarnos un mensaje con la situación presentada y el por qué considera que debe ser permitiada
+
+#My Account
+my.details: Detalles de mi cuenta
+messages: Mensajes
+edit.profile: Editar mi cuenta
+account.update.success: La información de la cuenta fue actualizada correctamente
+current.password: Password Actual
+new.password: Nuevo Password
+confirm.password: Confirmación
+password.confirm.error: El password y su confirmación son distintos
+password.lenght.error: El password debe tener entre 6 y 8 caracteres
+account.update.password.success: Su password fue cambiado correctamente y será requerido la próxima vez que intente ingresar al sistema
+current.password.error: Su password actual no corresponde
+change.password: Cambiar Password
+update.account.info: Actualizar Información

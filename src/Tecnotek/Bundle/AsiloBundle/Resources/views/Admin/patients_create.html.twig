@@ -1,0 +1,61 @@
+{% extends 'TecnotekAsiloBundle:Admin:layouts/admin_layout.html.twig' %}
+
+{% block js %}
+    <script src="{{ asset('admin/js/tecnotek/tecnotek_patients.js') }}"></script>
+
+    <script type="text/javascript">
+        Tecnotek.module = "patients-create";
+    </script>
+{% endblock js %}
+
+{% block mainContent %}
+    <!--overview start-->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-users"></i> {{ 'patients'|trans }}</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="{{ path('_admin_home') }}">{{ 'home'|trans }}</a></li>
+                <li><i class="fa fa-table"></i><a href="{{ path('_admin_patients') }}">{{ 'patients'|trans }}</a></li>
+                <li><i class="fa fa-user"></i>{{ 'create'|trans }}</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel">
+                <header class="panel-heading">
+                    {{ 'patient.main.info'|trans }}
+                </header>
+                <div class="panel-body">
+                    <div class="form">
+                        <form class="form-validate form-horizontal" id="patient_form" method="post"
+                              action="{{ path('_patients_save') }}" data-toggle="validator" role="form"
+                                {{ form_enctype(form) }}>
+
+                            <div style="display:none">
+                                <input name="utf8" type="hidden" value="?">
+                            </div>
+
+                            {{ include('TecnotekAsiloBundle:Admin:patient_form.html.twig') }}
+
+                            <div class="col-lg-12">
+                                <br>
+                                <div class="form-group">
+                                    <div class="col-lg-12 text-center">
+                                        <button class="btn btn-primary" type="submit">{{ 'save'|trans }}</button>
+                                        <a href="{{ path('_admin_patients') }}" class="btn btn-default">{{ 'cancel'|trans }}</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+{% endblock mainContent %}

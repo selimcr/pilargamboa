@@ -1,0 +1,9 @@
+{% extends 'TwigBundle:Exception:base.html.twig' %}
+
+{% block body %}
+    <div class="logo">
+        <h1>{{ 'error.500.message'|trans }}</h1>
+        <h2><strong>{{ status_code }}</strong> {{ status_text }}</h2>.
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}

@@ -1,0 +1,3 @@
+tecnotek_asilo:
+    resource: "@TecnotekAsiloBundle/Resources/config/routing.yml"
+    prefix:   /

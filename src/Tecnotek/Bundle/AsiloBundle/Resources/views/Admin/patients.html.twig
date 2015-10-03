@@ -1,0 +1,126 @@
+{% extends 'TecnotekAsiloBundle:Admin:layouts/admin_layout.html.twig' %}
+
+{% block js %}
+    <script src="{{ asset('admin/js/tecnotek/tecnotek_patients.js') }}"></script>
+
+    <script type="text/javascript">
+        Tecnotek.module = "patients-list";
+        Tecnotek.UI.translates['field.not.empty'] = "{{ 'validation.not.empty'|trans }}";
+        Tecnotek.UI.translates['confirm-graduate'] = "{{ 'confirm.graduate'|trans }}";
+        Tecnotek.UI.urls['edit-patient'] = "{{ path('_patients_edit', {'id': 'xxx'}) }}";
+        Tecnotek.UI.urls['graduate-patient'] = "{{ path('_patients_graduate', {'id': 'xid'}) }}";
+        Tecnotek.UI.vars['can-edit'] = {{ canEdit? "true":"false" }};
+    </script>
+{% endblock js %}
+
+{% block mainContent %}
+    <!--overview start-->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3 class="page-header"><i class="fa fa-users"></i> {{ 'patients'|trans }}</h3>
+            <ol class="breadcrumb">
+                <li><i class="fa fa-home"></i><a href="{{ path('_admin_home') }}">{{ 'home'|trans }}</a></li>
+                <li><i class="fa fa-table"></i>{{ 'patients'|trans }}</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12">
+            <div class="panel panel-default panel panel-primary">
+                <!-- Default panel contents -->
+                <div class="panel-heading">{{ 'patients'|trans }}</div>
+                <!-- Table -->
+                <div id="custom-toolbar">
+                    <div class="form-inline" role="form">
+                        <a href="{{ path('_patientes_create') }}" class="btn btn-default"
+                                title="{{ 'create.patient'|trans }}">{{ 'new'|trans }}</a>
+                    </div>
+                </div>
+
+                <table id="patients-list" class="table table-striped table-bordered table-hover"
+                       data-toolbar="#custom-toolbar"
+                       data-toggle="table"
+                       data-url="{{ path('_patients_paginated_list') }}"
+                       data-side-pagination="server"
+                       data-height="440"
+                       data-card-view="false"
+                       data-show-refresh="true" data-show-toggle="true" data-show-columns="true"
+                       data-search="true" data-select-item-name="toolbar1"
+                       data-pagination="true"
+                       data-page-list="[10, 25, 50, 100]"
+                       data-sort-name="lastName"
+                       data-sort-order="asc">
+                    <thead>
+                    <tr>
+                        <th data-field="lastName" data-sortable="true" class="col-md-4">
+                            {{ 'name'|trans }}
+                        </th>
+                        <th data-field="birthdate" data-sortable="true" class="col-md-2">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                            {{ 'birthdate'|trans }}
+                        </th>
+                        <th data-field="documentId" data-sortable="true" class="col-md-2">
+                            {{ 'documentId'|trans }}
+                        </th>
+                        <th data-field="operate" data-card-visible="false" data-searchable="false"
+                            data-formatter="Tecnotek.Patients.List.operateFormatter"
+                            data-events="Tecnotek.Patients.List.operateEvents">{{ 'actions'|trans }}</th>
+                    </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <!--/col-->
+
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="panel-sport" class="panel panel-default hidden">
+                        <div class="panel-heading">
+                            <div id="panel-sport-title" class="pull-left">{{ 'create.patient'|trans }}</div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="padd">
+                                <div class="form quick-post">
+                                    <form class="form-horizontal" id="form-sport">
+                                        <!-- Name -->
+                                        <div class="form-group">
+                                            <label class="control-label col-lg-4" for="name">{{ 'name'|trans }} *</label>
+
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" id="name" name="name" required="required"
+                                                       maxlength="250">
+                                            </div>
+                                        </div>
+
+                                        <!-- Buttons -->
+                                        <div class="form-group">
+                                            <!-- Buttons -->
+                                            <div class="col-lg-offset-2 col-lg-9">
+                                                <button type="submit"
+                                                        class="btn btn-primary">{{ 'save'|trans }}</button>
+                                                <button id="btn-cancel" type="reset"
+                                                        class="btn btn-default">{{ 'cancel'|trans }}</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+                            </div>
+                            <div class="widget-foot">
+                                <!-- Footer goes here -->
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock mainContent %}
