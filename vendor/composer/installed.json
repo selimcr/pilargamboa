@@ -1202,12 +1202,12 @@
         "version_normalized": "2.7.0.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/AsseticBundle.git",
+            "url": "https://github.com/symfony/assetic-bundle.git",
             "reference": "3ae5c8ca3079b6e0033cc9fbfb6500e2bc964da5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/AsseticBundle/zipball/3ae5c8ca3079b6e0033cc9fbfb6500e2bc964da5",
+            "url": "https://api.github.com/repos/symfony/assetic-bundle/zipball/3ae5c8ca3079b6e0033cc9fbfb6500e2bc964da5",
             "reference": "3ae5c8ca3079b6e0033cc9fbfb6500e2bc964da5",
             "shasum": ""
         },
@@ -1329,12 +1329,12 @@
         "version_normalized": "2.3.8.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/SwiftmailerBundle.git",
+            "url": "https://github.com/symfony/swiftmailer-bundle.git",
             "reference": "970b13d01871207e81d17b17ddda025e7e21e797"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/970b13d01871207e81d17b17ddda025e7e21e797",
+            "url": "https://api.github.com/repos/symfony/swiftmailer-bundle/zipball/970b13d01871207e81d17b17ddda025e7e21e797",
             "reference": "970b13d01871207e81d17b17ddda025e7e21e797",
             "shasum": ""
         },
@@ -1466,12 +1466,12 @@
         "version_normalized": "2.7.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/symfony/MonologBundle.git",
+            "url": "https://github.com/symfony/monolog-bundle.git",
             "reference": "9320b6863404c70ebe111e9040dab96f251de7ac"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/9320b6863404c70ebe111e9040dab96f251de7ac",
+            "url": "https://api.github.com/repos/symfony/monolog-bundle/zipball/9320b6863404c70ebe111e9040dab96f251de7ac",
             "reference": "9320b6863404c70ebe111e9040dab96f251de7ac",
             "shasum": ""
         },
@@ -1727,6 +1727,131 @@
         "homepage": "https://github.com/Incenteev/ParameterHandler",
         "keywords": [
             "parameters management"
+        ]
+    },
+    {
+        "name": "phpoffice/phpexcel",
+        "version": "1.8.1",
+        "version_normalized": "1.8.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/PHPOffice/PHPExcel.git",
+            "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/PHPOffice/PHPExcel/zipball/372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+            "reference": "372c7cbb695a6f6f1e62649381aeaa37e7e70b32",
+            "shasum": ""
+        },
+        "require": {
+            "ext-xml": "*",
+            "ext-xmlwriter": "*",
+            "php": ">=5.2.0"
+        },
+        "time": "2015-05-01 07:00:55",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "PHPExcel": "Classes/"
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Maarten Balliauw",
+                "homepage": "http://blog.maartenballiauw.be"
+            },
+            {
+                "name": "Mark Baker"
+            },
+            {
+                "name": "Franck Lefevre",
+                "homepage": "http://blog.rootslabs.net"
+            },
+            {
+                "name": "Erik Tilt"
+            }
+        ],
+        "description": "PHPExcel - OpenXML - Read, Create and Write Spreadsheet documents in PHP - Spreadsheet engine",
+        "homepage": "http://phpexcel.codeplex.com",
+        "keywords": [
+            "OpenXML",
+            "excel",
+            "php",
+            "spreadsheet",
+            "xls",
+            "xlsx"
+        ]
+    },
+    {
+        "name": "liuggio/ExcelBundle",
+        "version": "v2.0.2",
+        "version_normalized": "2.0.2.0",
+        "target-dir": "Liuggio/ExcelBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/liuggio/ExcelBundle.git",
+            "reference": "33ce101e5fb76786ea05da350ab394b596d7ee52"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/liuggio/ExcelBundle/zipball/33ce101e5fb76786ea05da350ab394b596d7ee52",
+            "reference": "33ce101e5fb76786ea05da350ab394b596d7ee52",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "phpoffice/phpexcel": "~1.8.0",
+            "symfony/framework-bundle": "~2.6"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4.6",
+            "sensio/framework-extra-bundle": "~2.3",
+            "symfony/browser-kit": "~2.6",
+            "symfony/class-loader": "~2.6",
+            "symfony/finder": "~2.6",
+            "symfony/form": "~2.6",
+            "symfony/validator": "~2.6"
+        },
+        "time": "2015-05-15 09:50:11",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Liuggio\\ExcelBundle": ""
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "ExcelBundle Contributors",
+                "homepage": "https://github.com/liuggio/ExcelBundle#contributors"
+            },
+            {
+                "name": "Giulio De Donato",
+                "email": "liuggio@gmail.com"
+            }
+        ],
+        "description": "This is a Symfony2 Bundle helps you to read and write Excel files (including pdf, xlsx, odt), thanks to the PHPExcel library",
+        "homepage": "http://www.welcometothebundle.com",
+        "keywords": [
+            "Symfony2",
+            "bundle",
+            "excel",
+            "xls"
         ]
     }
 ]
