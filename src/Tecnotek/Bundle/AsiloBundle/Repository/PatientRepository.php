@@ -16,6 +16,13 @@ class PatientRepository extends GenericRepository {
     const GRADUATE = 2;
     const BOTH_GRADUATE = 3;
 
+    public function getConapamPatients() {
+        $dql = "SELECT s FROM TecnotekAsiloBundle:Patient s";
+        $dql .= " WHERE s.isDeleted = false AND s.isGraduate = false AND (s.law7972 = true OR s.law8783 = true)";
+        $query = $this->getEntityManager()->createQuery($dql);
+        return $query->getResult();
+    }
+
     public function getFilteredByGraduateStatusList($offset, $limit, $search, $sort, $order, $graduateStatus ) {
         $dql = "SELECT s FROM TecnotekAsiloBundle:Patient s";
         $dql .= " WHERE s.isDeleted = false";

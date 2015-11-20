@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 /**
  * @ORM\Table(name="tecnotek_patients")
@@ -140,9 +141,39 @@ class Patient
     private $isDeleted;
 
     /**
-     * @ORM\Column(name="is_graduate", type="boolean")
+     * @ORM\Column(name="is_graduate", type="boolean", nullable = true)
      */
     private $isGraduate;
+
+    /**
+     * @ORM\Column(name="law_8783", type="boolean", nullable = false)
+     */
+    private $law8783;
+
+    /**
+     * @ORM\Column(name="law_7972", type="boolean", nullable = false)
+     */
+    private $law7972;
+
+    /**
+     * @ORM\Column(name="obs_enter_date", type="date", nullable = true)
+     */
+    private $obsEnterDate;
+
+    /**
+     * @ORM\Column(name="familiar_income", type="decimal", scale=2, nullable = true)
+     */
+    private $familiarIncome;
+
+    /**
+     * @ORM\Column(name="lastStatusChange", type="date", nullable = true)
+     */
+    private $lastStatusChange;
+
+    /**
+     * @ORM\Column(name="status", type="string", length=200, nullable = true)
+     */
+    private $status;
 
     /**
      * @ORM\OneToMany(targetEntity="PatientPention", mappedBy="patient")
@@ -152,6 +183,10 @@ class Patient
     public function __construct() {
         $this->isDeleted = false;
         $this->isGraduate = false;
+        $this->law7972 = false;
+        $this->law8783 = false;
+        $this->familiarIncome = 0;
+        $this->lastStatusChange = new DateTime();
         $this->pentions = new ArrayCollection();
     }
 
@@ -543,6 +578,114 @@ class Patient
     public function getPentions()
     {
         return $this->pentions;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLaw8783()
+    {
+        return $this->law8783;
+    }
+
+    /**
+     * @param mixed $law8783
+     * @return Patient
+     */
+    public function setLaw8783($law8783)
+    {
+        $this->law8783 = $law8783;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLaw7972()
+    {
+        return $this->law7972;
+    }
+
+    /**
+     * @param mixed $law7972
+     * @return Patient
+     */
+    public function setLaw7972($law7972)
+    {
+        $this->law7972 = $law7972;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getObsEnterDate()
+    {
+        return $this->obsEnterDate;
+    }
+
+    /**
+     * @param mixed $obsEnterDate
+     * @return Patient
+     */
+    public function setObsEnterDate($obsEnterDate)
+    {
+        $this->obsEnterDate = $obsEnterDate;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFamiliarIncome()
+    {
+        return $this->familiarIncome;
+    }
+
+    /**
+     * @param mixed $familiarIncome
+     * @return Patient
+     */
+    public function setFamiliarIncome($familiarIncome)
+    {
+        $this->familiarIncome = $familiarIncome;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastStatusChange()
+    {
+        return $this->lastStatusChange;
+    }
+
+    /**
+     * @param mixed $lastStatusChange
+     * @return Patient
+     */
+    public function setLastStatusChange($lastStatusChange)
+    {
+        $this->lastStatusChange = $lastStatusChange;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     * @return Patient
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+        return $this;
     }
 
     public function __toString(){

@@ -47,6 +47,7 @@ results: Resultados
 cognitive.activities: Actividades Cognitivas
 patiens.list: Listados de Beneficiarios
 patiens.list.catalog: Listados por Actividad
+CONAPAN Report: Reporte CONAPAM
 
 # Actions
 actions: Acciones
@@ -60,6 +61,20 @@ add: Agregar
 change: Cambiar
 
 saving.success: Se ha guardado la información correctamente
+
+# Months
+January: Enero
+February: Febrero
+March: Marzo
+April: Abril
+May: Mayo
+June: Junio
+July: Julio
+August: Agosto
+September: Septiembre
+October: Octubre
+November: Noviembre
+December: Diciembre
 
 # Catalogs
 catalog.save.success: Se ha completado el guardado correctamente
@@ -176,6 +191,11 @@ participants: Participantes
 email: Correo Electrónico
 cellPhone: Teléfono
 active: Activo
+familiarIncome: Aporte Familiar
+status: Estado
+obsEnterDate: Fecha Ingreso OBS
+law7972: Beneficiario Ley 7972?
+law8783: Beneficiario Ley 8783?
 
 # Dashboard
 older.adults.age.ranges: Cantidad Adultos Mayores por Rango de Edades
@@ -221,6 +241,27 @@ label.birthday: Fecha de Nacimiento
 label.generate: Generar
 label.report.list: Reporte de Beneficiaros
 label.report.list.catalog: Reporte de Beneficiaros en actividad.
+gender.initial.1: M
+gender.initial.2: F
+dont.have: No tiene
+
+conapam.name: Nombre del beneficiario (1er Apellido, 2do Apellido, Nombre)
+age: Edad
+conapam.gender: Sexo F/M
+conapam.pentions: Tipo de Pensión
+conapam.pentions.amount: Monto de Pensión
+conapam.birthday: Fecha de Nacimiento
+conapam.id: Número de Identificación
+conapam.familiar.income: Aporte Familiar / Otros
+conapam.law.7972: Ley 7972 Califican Si/No
+conapam.law.8763: Ley 8763 Califican Si/No
+conapam.obs.date: Fecha de Ingreso a la OBS
+conapam.status: Estado Actual
+
+patients.approved: Beneficiarios Aprobados
+spaces.completed: Espacios Completados
+spaces.availabled: Espacios Disponibles
+mensual.subsidio: Subsidio Mensual
 
 #Users
 users: Usuarios

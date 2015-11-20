@@ -17,40 +17,7 @@ Tecnotek.Reports = {
                 Tecnotek.Reports.loadGroupPatients($("#activityTypeId").val(), $(this).val());
             });
         }
-        /*initButtons : function() {
-            alert("llego");
-            $('#btnPrint').click(function(event){
-
-                $("#report").printElement({printMode:'popup', pageTitle:$(this).attr('rel')});
-
-            })
-        }*/
-
     },
-    /*loadGroupActivities: function($activityTypeId) {
-        console.debug("Load groups of activity: " + $activityTypeId);
-        if(($activityTypeId!==null)){
-            $('#activitiesOptions').children().remove();
-            //$('#subentryFormParent').empty();
-            //$('#tableContainer').hide();
-             Tecnotek.ajaxCall(Tecnotek.UI.urls["loadGroupsOfActivity"],
-                {   activityTypeId: $activityTypeId },
-                function(data){
-                    console.debug("Total: " + data.activities.length);
-                    if(data.error === true) {
-                        Tecnotek.showErrorMessage(data.message,true, "", false);
-                    } else {
-                        for(i=0; i<data.activities.length; i++) {
-                            $('#activitiesOptions').append('<option value="' + data.activities[i].id + '">' + data.activities[i].name + '</option>');
-                        }
-                    }
-                },
-                function(jqXHR, textStatus){
-                    Tecnotek.showErrorMessage("Error getting data: " + textStatus + ".", true, "", false);
-                    $(this).val("");
-                }, true);
-        }
-    }*/
     loadGroupActivities: function($entity) {
         console.debug("Load groups of activity: " + $entity);
         if(($entity!==null || $entity!= '-1')){
@@ -85,8 +52,6 @@ Tecnotek.Reports = {
             $('#activityTypeLabel').empty();
             $('#activityLabel').append($('#activityTypeId :selected').text());
             $('#activityTypeLabel').append($('#activitiesOptions :selected').text());
-            //$('#tableContainer').hide();
-            console.debug("Ids: " + $entity +"- " + $activityId);
             Tecnotek.ajaxCall(Tecnotek.UI.urls["loadGroupsOfPatients"],
                 {   entity: $entity, activityId: $activityId  },
                 function(data){

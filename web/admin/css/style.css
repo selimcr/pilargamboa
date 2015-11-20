@@ -4948,3 +4948,10 @@ span.customSelect.changed {
 input[type="checkbox"].form-control { height: 24px;  width: 10%;}
 
 .form-align-left .control-label {text-align: left;}
+
+#report{padding-left: 20px; padding-right: 20px; margin-top: 25px;}
+.conapam-report .title {font-weight: bold; font-size: 18px; color: white; background-color: #000066; border: 2px;
+    border-color: black; height: 25px; line-height: 25px; vertical-align: middle; }
+.conapam-report .subtitle {font-weight: bold; font-size: 18px; color: red; background-color: #f9dd34; border: 2px;
+    border-color: black; height: 25px; line-height: 25px; vertical-align: middle; }
+.conapam-report .account {font-weight: bold; font-size: 18px;}

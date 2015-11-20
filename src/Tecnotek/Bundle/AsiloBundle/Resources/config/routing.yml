@@ -51,6 +51,11 @@ _pilar_gamboa_admin_account:
     type:     annotation
     prefix:   /admin
 
+_pilar_gamboa_admin_report:
+    resource: "@TecnotekAsiloBundle/Controller/ReportController.php"
+    type:     annotation
+    prefix:   /admin
+
 _pilar_gamboa_admin_patiens_report:
     pattern:  /reports/reportList/
     defaults: { _controller: TecnotekAsiloBundle:Admin:reportList }

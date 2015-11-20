@@ -44,6 +44,12 @@ class PatientForm extends AbstractType
             $scholarityOptions[$scholarity->getName()] = $scholarity->getName();
         }
 
+        $patientStatusList = $this->em->getRepository("TecnotekAsiloBundle:PatientStatus")->findAll();
+        $patientStatusOptions = array();
+        foreach ($patientStatusList as $patientStatus){
+            $patientStatusOptions[$patientStatus->getName()] = $patientStatus->getName();
+        }
+
         $builder
             ->add('firstname', 'text', array('trim' => true))
             ->add('lastname', 'text', array('trim' => true))
@@ -99,6 +105,25 @@ class PatientForm extends AbstractType
                 array('trim' => true, 'required' => false,))
             ->add('laterality', 'choice', array(
                 'choices'  => array('Derecho' => 'Derecho', 'Izquierdo' => 'Izquierdo'),
+                'required' => true, 'required' => false,
+            ))
+
+            ->add('familiarIncome', 'number',
+                array('trim' => true, 'required' => true,))
+            ->add('obsEnterDate', 'date', array(
+                'input'  => 'datetime',
+                'widget' => 'single_text', 'required' => false,
+            ))
+            ->add('law7972', 'checkbox', array(
+                'label'    => 'Law 7972?',
+                'required' => false,
+            ))
+            ->add('law8783', 'checkbox', array(
+                'label'    => 'Law 8783?',
+                'required' => false,
+            ))
+            ->add('status', 'choice', array(
+                'choices'  => $patientStatusOptions,
                 'required' => true, 'required' => false,
             ))
         ;
